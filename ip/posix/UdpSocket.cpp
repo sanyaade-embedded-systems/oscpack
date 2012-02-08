@@ -109,11 +109,11 @@ public:
 				
 		// enable multicast addresses
 		int on = 1;
-		setsockopt(socket, SOL_SOCKET, SO_BROADCAST, (char*)&on, sizeof(on));
+		setsockopt(socket_, SOL_SOCKET, SO_BROADCAST, &on, sizeof(on));
 		
 		// enable multiple listeners for a single port on same network interface
 		int reuse = 1;  
-		setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof reuse);  
+		setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
 		
 		memset( &sendToAddr_, 0, sizeof(sendToAddr_) );
         sendToAddr_.sin_family = AF_INET;
