@@ -102,11 +102,11 @@ public:
         }
 				
 		// enable multicast addresses
-		int on = 1;
+		char on = 1; // char on win32
 		setsockopt(socket_, SOL_SOCKET, SO_BROADCAST, &on, sizeof(on));
 		
 		// enable multiple listeners for a single port on same network interface
-		int reuse = 1;  
+		char reuse = 1; // char on win32
 		setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
 
 		memset( &sendToAddr_, 0, sizeof(sendToAddr_) );
